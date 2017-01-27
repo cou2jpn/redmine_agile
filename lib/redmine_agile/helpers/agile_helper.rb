@@ -92,7 +92,7 @@ module RedmineAgile
 
     def options_charts_for_select(selected, options={})
       options_for_select([[l(:label_agile_charts_issues_burndown), "issues_burndown"],
-        [l(:label_agile_charts_work_burndown_sp), "work_burndown_sp"],
+        ([l(:label_agile_charts_work_burndown_sp), "work_burndown_sp"] if Setting.plugin_redmine_agile['estimate_units'] == "story_points"),
         [l(:label_agile_charts_work_burndown_hours), "work_burndown_hours"],
         nil].compact,
         selected)
